@@ -1,0 +1,34 @@
+name: Memory Lint
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate memory layout
+        run: |
+          set -euo pipefail
+          test -f WORKING_STATE.md
+          test -f README.md
+          test -f .codex-memory/operating-mode.md
+          test -f .codex-memory/project-schema.md
+          test -f .codex-memory/profile.md
+          test -f .codex-memory/decisions.md
+          test -f .codex-memory/active-context.md
+          test -f .codex-memory/queue.md
+          test -f .codex-memory/README.md
+          test -f .codex-memory/history/convention.md
+          test -d .codex-memory/issues/open
+          test -d .codex-memory/issues/resolved
+          test -x scripts/memory-log.sh
+          test -x scripts/memory-issue.sh
+          test -x scripts/memory-archive.sh
+          bash -n scripts/memory-log.sh
+          bash -n scripts/memory-issue.sh
+          bash -n scripts/memory-archive.sh
