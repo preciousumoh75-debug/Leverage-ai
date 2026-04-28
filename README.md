@@ -2,6 +2,14 @@
 
 Leverage-ai - Intelligence Automation for Africa
 
+## Overview
+
+This repository contains both the public website and the durable memory workspace for Leverage-ai.
+
+- `index.html` is the website entry point.
+- `WORKING_STATE.md` is the live working log.
+- `.codex-memory/` is the structured memory layer.
+
 ## Branding
 
 - Human-facing workspace name: `Leverage-ai`
